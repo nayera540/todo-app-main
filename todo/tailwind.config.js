@@ -9,6 +9,8 @@ export default {
             colors: {
                 "Bright-Blue": "hsl(220, 98%, 61%)",
                 "Very-Light-Gray": "hsl(0, 0%, 98%)",
+                "gradient-1": "hsl(192, 100%, 67%)",
+                "gradient-2": "hsl(280, 87%, 65%)",
                 "Very-Light-Grayish-Blue": "hsl(236, 33%, 92%)",
                 "Light-Grayish-Blue": "hsl(233, 11%, 84%)",
                 "Dark-Blue-Grayish-Blue": "hsl(236, 9%, 61%)",

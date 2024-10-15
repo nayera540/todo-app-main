@@ -1,10 +1,77 @@
 import TodoList from "./components/todoList/TodoList";
+import todos from "../public/data.json";
+import { useReducer } from "react";
+
+const initialState = {
+    todos: todos,
+    active: [],
+    completed: [],
+};
+
+function todoReducer(state, action) {
+    switch (action.type) {
+        case "Toggle_Task_Done":
+            return {
+                ...state,
+                todos: state.todos.map((todo) =>
+                    todo.id === action.payload.id ? { ...todo, done: !todo.done } : todo
+                ),
+            };
+        case "Edit_task":
+            return {
+                ...state,
+                todos: state.todos.map((todo) =>
+                    todo.id === action.payload.id
+                        ? { ...todo, title: action.payload.title }
+                        : todo
+                ),
+            };
+        case "Remove_Task":
+            return {
+                ...state,
+                todos: state.todos.filter((todo) => todo.id !== action.payload.id),
+            };
+        case "All_Tasks":
+            return {
+                ...state,
+                todos,
+            };
+        case "Active_Tasks":
+            return {
+                ...state,
+                active: state.todos.filter((todo) => !todo.done),
+            };
+        case "Completed_Tasks":
+            return {
+                ...state,
+                completed: state.todos.filter((todo) => todo.done),
+            };
+        case "Clear_All":
+            return {
+                ...state,
+                todos: [],
+                active: [],
+                completed: [],
+            };
+        default:
+            return state;
+    }
+}
 
 function App() {
+    const [{ todos, active, completed }, dispatch] = useReducer(
+        todoReducer,
+        initialState
+    );
+
+    console.log(todos);
+
     return (
         <div className="max-w-[700px] w-full mx-auto mt-[70px] md:px-0 px-3">
             <div className="flex flex-row justify-between">
-                <h1 className="text-white font-black uppercase tracking-[.45em] text-4xl">todo</h1>
+                <h1 className="text-white font-black uppercase tracking-[.45em] text-4xl">
+                    todo
+                </h1>
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
                         <path
@@ -14,11 +81,9 @@ function App() {
                         />
                     </svg>
                 </button>
-                
-                    
             </div>
             <div>
-                <TodoList />
+                <TodoList todos={todos} dispatch={dispatch} />
             </div>
         </div>
     );

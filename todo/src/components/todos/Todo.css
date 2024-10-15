@@ -1,0 +1,31 @@
+.gradient-border-hover {
+    background-color: white;
+    border: 1px solid #d3d3d3;
+    border-radius: 9999px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.gradient-border-hover:hover {
+    border: 1px solid transparent;
+    background:
+        linear-gradient(white, white) padding-box,
+        linear-gradient(to right, #57DDFF, #C058F3) border-box;
+}
+
+.gradient-border-hover:checked {
+    background: linear-gradient(to bottom right, #57DDFF, #C058F3);
+    border: none;
+}
+
+.gradient-border-hover:checked::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 11px;
+    height: 9px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="%23FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>') no-repeat center;
+    background-size: contain;
+}
