@@ -27,7 +27,7 @@ function Todo({ todo, dispatch }) {
             {isEditToggled ? (
                 ""
             ) : (
-                <div className="group flex flex-row items-center justify-between w-full hover:cursor-pointer">
+                <div className="group flex flex-row items-center justify-between w-full">
                     <div className="flex items-center">
                         <input
                             type="checkbox"
@@ -47,7 +47,7 @@ function Todo({ todo, dispatch }) {
                         </label>
                     </div>
                     <div className="flex">
-                        <button className="mr-2" onClick={handleRemoveTask}>
+                        <button className="remove-btn mr-2 opacity-0" onClick={() => handleRemoveTask(todo)}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
                                 <path
                                     fill="#494C6B"

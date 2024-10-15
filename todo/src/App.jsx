@@ -29,7 +29,7 @@ function todoReducer(state, action) {
         case "Add_Task":
             return {
                 ...state,
-                todos: [...state.todos, { id: todos.length + 1, title: action.payload, done: false }]
+                todos: [...state.todos, { id: state.todos.length + 1, title: action.payload, done: false }]
             };
         case "Remove_Task":
             return {
@@ -69,7 +69,6 @@ function App() {
         initialState
     );
 
-    console.log(todos);
 
     return (
         <div className="max-w-[700px] w-full mx-auto mt-[70px] md:px-0 px-3">
