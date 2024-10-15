@@ -26,6 +26,11 @@ function todoReducer(state, action) {
                         : todo
                 ),
             };
+        case "Add_Task":
+            return {
+                ...state,
+                todos: [...state.todos, { id: todos.length + 1, title: action.payload, done: false }]
+            };
         case "Remove_Task":
             return {
                 ...state,

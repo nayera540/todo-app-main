@@ -27,7 +27,7 @@ function Todo({ todo, dispatch }) {
             {isEditToggled ? (
                 ""
             ) : (
-                <div className="group flex flex-row items-center justify-between hover:cursor-pointer">
+                <div className="group flex flex-row items-center justify-between w-full hover:cursor-pointer">
                     <div className="flex items-center">
                         <input
                             type="checkbox"
@@ -37,7 +37,7 @@ function Todo({ todo, dispatch }) {
                         />
 
                         <label
-                            className={`grid content-center ml-6 text-xl  ${todo.done
+                            className={`grid content-center ml-6 text-xl hover:cursor-pointer ${todo.done
                                 ? "line-through text-Light-Grayish-Blue"
                                 : "text-Very-Dark-Grayish-Blue"
                                 }`}
@@ -47,7 +47,7 @@ function Todo({ todo, dispatch }) {
                         </label>
                     </div>
                     <div className="flex">
-                        <button className="" onClick={handleRemoveTask}>
+                        <button className="mr-2" onClick={handleRemoveTask}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
                                 <path
                                     fill="#494C6B"
