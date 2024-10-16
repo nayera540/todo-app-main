@@ -39,7 +39,7 @@ function todoReducer(state, action) {
         case "All_Tasks":
             return {
                 ...state,
-                todos,
+                todos: state.todos,
             };
         case "Active_Tasks":
             return {
@@ -51,11 +51,10 @@ function todoReducer(state, action) {
                 ...state,
                 completed: state.todos.filter((todo) => todo.done),
             };
-        case "Clear_All":
+        case "Clear_Completed":
             return {
                 ...state,
-                todos: [],
-                active: [],
+                todos: state.todos.filter((todo) => !todo.done),
                 completed: [],
             };
         default:
@@ -87,7 +86,7 @@ function App() {
                 </button>
             </div>
             <div>
-                <TodoList todos={todos} dispatch={dispatch} />
+                <TodoList todos={todos} active={active} completed={completed} dispatch={dispatch} />
             </div>
         </div>
     );

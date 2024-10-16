@@ -14,9 +14,9 @@ function Todo({ todo, dispatch }) {
         setIsEditToggled((isEditToggled) => !isEditToggled);
     }
 
-    function handleEditTask() { 
+    function handleEditTask() {
         handleEditToggle();
-        dispatch({type: "Edit_task", payload: {id: todo.id, title: editTask}});
+        dispatch({ type: "Edit_task", payload: { id: todo.id, title: editTask } });
     }
 
     function handleCheckTodo(todo) {
@@ -39,31 +39,56 @@ function Todo({ todo, dispatch }) {
                         value={editTask}
                         autoFocus
                         onChange={(e) => setEditTask(e.target.value)}
-                        onKeyDown={(e) => {if(e.key === "Enter") handleEditTask()}}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") handleEditTask();
+                        }}
                         className={`grid content-center w-2/3 caret-Bright-Blue ml-2 outline-none text-xl hover:cursor-pointer ${todo.done
-                            ? "line-through text-Light-Grayish-Blue"
-                            : "text-Very-Dark-Grayish-Blue"
+                                ? "line-through text-Light-Grayish-Blue"
+                                : "text-Very-Dark-Grayish-Blue"
                             }`}
                     />
                     <div className="grid justify-center content-center grid-flow-col gap-2">
-                        <button className="bg-green-600 w-6 h-7 grid justify-center content-center rounded-md" onClick={handleEditTask}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6" /></svg>
+                        <button
+                            className="bg-green-600 w-6 h-7 grid justify-center content-center rounded-md"
+                            onClick={handleEditTask}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                                <path
+                                    fill="none"
+                                    stroke="#FFF"
+                                    stroke-width="2"
+                                    d="M1 4.304L3.696 7l6-6"
+                                />
+                            </svg>
                         </button>
-                        <button className="bg-red-600 h-7 w-6 rounded-md grid justify-center content-center" onClick={handleEditToggle}>
-                            <svg fill="#ffffff" width="14px" height="12px" viewBox="0 0 200 200" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" stroke-width="10" stroke="#ffffff">
-
+                        <button
+                            className="bg-red-600 h-7 w-6 rounded-md grid justify-center content-center"
+                            onClick={handleEditToggle}
+                        >
+                            <svg
+                                fill="#ffffff"
+                                width="14px"
+                                height="12px"
+                                viewBox="0 0 200 200"
+                                data-name="Layer 1"
+                                id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg"
+                                stroke-width="10"
+                                stroke="#ffffff"
+                            >
                                 <g id="SVGRepo_bgCarrier" stroke-width="" />
 
-                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                                <g
+                                    id="SVGRepo_tracerCarrier"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
 
                                 <g id="SVGRepo_iconCarrier">
-
                                     <title />
 
                                     <path d="M114,100l49-49a9.9,9.9,0,0,0-14-14L100,86,51,37A9.9,9.9,0,0,0,37,51l49,49L37,149a9.9,9.9,0,0,0,14,14l49-49,49,49a9.9,9.9,0,0,0,14-14Z" />
-
                                 </g>
-
                             </svg>
                         </button>
                     </div>
@@ -80,8 +105,8 @@ function Todo({ todo, dispatch }) {
 
                         <label
                             className={`grid content-center ml-6 text-xl hover:cursor-pointer ${todo.done
-                                ? "line-through text-Light-Grayish-Blue"
-                                : "text-Very-Dark-Grayish-Blue"
+                                    ? "line-through text-Light-Grayish-Blue"
+                                    : "text-Very-Dark-Grayish-Blue"
                                 }`}
                             onClick={handleEditToggle}
                         >
