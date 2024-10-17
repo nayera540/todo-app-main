@@ -4,6 +4,6 @@
 
 @layer components{
     .navigate button{
-        @apply hover:text-Very-Dark-Blue-Dark duration-150;
+        @apply hover:text-Very-Dark-Blue-Dark duration-150 dark:hover:text-Light-Grayish-Blue-(hover)-Dark;
     }
 }

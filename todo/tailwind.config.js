@@ -4,6 +4,7 @@ export default {
         "./index.html",
         "./src/**/*.{js,ts,jsx,tsx}",
     ],
+    darkMode: 'class',
     theme: {
         extend: {
             colors: {
@@ -22,14 +23,19 @@ export default {
                 "Dark-Grayish-Blue-Dark": "hsl(234, 11%, 52%)",
                 "Very-Dark-Grayish-Blue-1-Dark": "hsl(233, 14%, 35%)",
                 "Very-Dark Grayish-Blue-2-Dark": "hsl(237, 14%, 26%)"
-                
+
             },
-            fontFamily:{
+            transitionProperty: {
+                'colors': 'color, background-color, border-color, text-decoration-color, fill, stroke',
+            },
+            fontFamily: {
                 "josefin": ["Josefin Sans", "sans-serif"]
             },
-            backgroundImage:{
+            backgroundImage: {
                 "desktop-pattern-img-light": "url('/images/bg-desktop-light.jpg')",
                 "mobile-pattern-img-light": "url('/images/bg-mobile-light.jpg')",
+                "desktop-pattern-img-dark": "url('/images/bg-desktop-dark.jpg')",
+                "mobile-pattern-img-dark": "url('/images/bg-mobile-dark.jpg')"
 
             }
         },

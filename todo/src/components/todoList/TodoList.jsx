@@ -34,11 +34,11 @@ function TodoList({ todos, dispatch, active, completed }) {
     }
 
     return (
-        <div className="w-full max-w-[700px] mt-9 mb-9">
-            <div className="relative w-full mb-8">
-                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 rounded-full border-[1px] border-Very-Light-Grayish-Blue bg-white mx-2"></span>
+        <div className="w-full max-w-[700px] mt-9 mb-9 transition-colors duration-1000">
+            <div className="relative w-full mb-8 transition-colors duration-150">
+                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 rounded-full border-[1px] dark:border-Very-Dark-Grayish-Blue-1-Dark border-Very-Light-Grayish-Blue bg-white dark:bg-Very-Dark-Desaturated-Blue-Dark mx-2"></span>
                 <input
-                    className="max-w-[700px] w-full h-[55px] rounded-lg py-8 px-5 pl-16 text-xl focus:outline-none text-Very-Dark-Grayish-Blue items-center caret-Bright-Blue"
+                    className="max-w-[700px] dark:bg-Very-Dark-Desaturated-Blue-Dark dark:text-Light-Grayish-Blue-Dark w-full h-[55px] rounded-lg py-8 px-5 pl-16 text-xl focus:outline-none text-Very-Dark-Grayish-Blue dark: items-center caret-Bright-Blue"
                     value={todoInput}
                     onChange={(e) => setTodoInput(e.target.value)}
                     onKeyDown={(e) => {
@@ -47,7 +47,7 @@ function TodoList({ todos, dispatch, active, completed }) {
                     placeholder="Create a new todo..."
                 />
             </div>
-            <div className="w-full rounded-lg bg-white">
+            <div className="w-full rounded-lg bg-white dark:bg-Very-Dark-Desaturated-Blue-Dark transition-colors duration-150">
                 {activeFilter === "All" &&
                     todos.length > 0 &&
                     todos.map((todo) => (
@@ -63,7 +63,7 @@ function TodoList({ todos, dispatch, active, completed }) {
                     completed.map((todo) => (
                         <Todo key={todo.id} todo={todo} dispatch={dispatch} editTaskId={editTaskId} setEditTaskId={setEditTaskId}/>
                     ))}
-                <div className="filter-tasks w-full bg-white h-14 flex flex-row items-center justify-between rounded-b-lg px-7">
+                <div className="filter-tasks w-full dark:bg-Very-Dark-Desaturated-Blue-Dark transition-colors duration-150 bg-white h-14 flex flex-row items-center justify-between rounded-b-lg px-7">
                     <p className="text-Dark-Blue-Grayish-Blue">{itemsLeft} items left</p>
                     <div className="navigate flex gap-5">
                         <button className={`${activeFilter === "All"? "text-Bright-Blue":"text-Dark-Blue-Grayish-Blue"} font-bold text-[17px]`} onClick={handleAllTasks}>
@@ -76,7 +76,7 @@ function TodoList({ todos, dispatch, active, completed }) {
                             Completed
                         </button>
                     </div>
-                    <button className="text-Dark-Blue-Grayish-Blue hover:text-Very-Dark-Grayish-Blue duration-150" onClick={handleClearCompletedTasks}>
+                    <button className="text-Dark-Blue-Grayish-Blue hover:text-Very-Dark-Grayish-Blue dark:hover:text-Light-Grayish-Blue-(hover)-Dark duration-150" onClick={handleClearCompletedTasks}>
                         Clear Completed
                     </button>
                 </div>

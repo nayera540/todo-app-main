@@ -36,7 +36,7 @@ function Todo({ todo, dispatch, editTaskId, setEditTaskId }) {
     }
 
     return (
-        <div className="w-full max-w-[700px] bg-white h-20 border-solid border-b-[1px] first:rounded-t-lg p-5 border-Light-Grayish-Blue flex flex-row">
+        <div className="w-full max-w-[700px] bg-white transition-colors duration-150 dark:bg-Very-Dark-Desaturated-Blue-Dark h-20 border-solid border-b-[1px] first:rounded-t-lg p-5 border-Light-Grayish-Blue flex flex-row">
             {editTaskId === todo.id ? (
                 <div className="flex flex-row justify-between w-full">
                     <input
@@ -47,9 +47,9 @@ function Todo({ todo, dispatch, editTaskId, setEditTaskId }) {
                         onKeyDown={(e) => {
                             if (e.key === "Enter") handleEditTask();
                         }}
-                        className={`grid content-center w-2/3 caret-Bright-Blue ml-2 outline-none text-xl hover:cursor-pointer ${todo.done
-                                ? "line-through text-Light-Grayish-Blue"
-                                : "text-Very-Dark-Grayish-Blue"
+                        className={`grid content-center w-2/3 caret-Bright-Blue ml-2 outline-none dark:bg-Very-Dark-Desaturated-Blue-Dark text-xl hover:cursor-pointer ${todo.done
+                                ? "line-through text-Light-Grayish-Blue dark:text-Dark-Grayish-Blue-Dark"
+                                : "text-Very-Dark-Grayish-Blue dark:text-Light-Grayish-Blue-Dark"
                             }`}
                     />
                     <div className="grid justify-center content-center grid-flow-col gap-2">
@@ -105,13 +105,13 @@ function Todo({ todo, dispatch, editTaskId, setEditTaskId }) {
                             type="checkbox"
                             checked={todo.done}
                             onClick={() => handleCheckTodo(todo)}
-                            className="checkbox appearance-none w-6 h-6 gradient-border-hover flex-shrink-0  focus:outline-none cursor-pointer duration-200"
+                            className="checkbox appearance-none w-6 h-6 gradient-border-hover flex-shrink-0 dark:bg-Very-Dark-Desaturated-Blue-Dark dark:hover:bg-Very-Dark-Desaturated-Blue-Dark dark:border-Very-Dark-Grayish-Blue-1-Dark focus:outline-none cursor-pointer duration-200"
                         />
 
                         <label
                             className={`grid content-center ml-6 text-xl hover:cursor-pointer ${todo.done
-                                    ? "line-through text-Light-Grayish-Blue"
-                                    : "text-Very-Dark-Grayish-Blue"
+                                    ? "line-through text-Light-Grayish-Blue dark:text-Dark-Grayish-Blue-Dark"
+                                    : "text-Very-Dark-Grayish-Blue dark:text-Light-Grayish-Blue-Dark"
                                 }`}
                             onClick={handleEditToggle}
                         >
