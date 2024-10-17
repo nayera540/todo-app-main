@@ -3,10 +3,19 @@ import todos from "../public/data.json";
 import { useEffect, useReducer, useState } from "react";
 
 const initialState = {
-    todos: todos,
+    todos: (() => {
+        try {
+            const todosFromLocalStorage = localStorage.getItem("todos");
+            return todosFromLocalStorage ? JSON.parse(todosFromLocalStorage) : todos;
+        } catch (e) {
+            console.error("Error parsing todos from localStorage", e);
+            return todos; // fallback to default todos if parsing fails
+        }
+    })(),
     active: [],
     completed: [],
 };
+
 
 function todoReducer(state, action) {
     switch (action.type) {
@@ -64,6 +73,11 @@ function todoReducer(state, action) {
                 ...state,
                 completed: state.todos.filter((todo) => todo.done),
             };
+        case 'Reorder_Tasks':
+            return {
+                ...state,
+                todos: action.payload
+            }
         case "Clear_Completed":
             return {
                 ...state,
@@ -81,7 +95,9 @@ function App() {
         initialState
     );
 
-    const [theme, setTheme] = useState("light");
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light" );
+
+
 
     function handleThemeToggle() {
         setTheme((currTheme) => {
@@ -98,10 +114,16 @@ function App() {
     useEffect(() => {
         if (theme === "dark") {
             document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark")
         } else {
             document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light")
         }
     }, [theme]);
+
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }, [todos])
 
     return (
         <div className="max-w-[700px] w-full mx-auto mt-[70px] md:px-0 px-3 transition-colors duration-1000">

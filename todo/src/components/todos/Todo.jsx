@@ -36,7 +36,7 @@ function Todo({ todo, dispatch, editTaskId, setEditTaskId }) {
     }
 
     return (
-        <div className="w-full max-w-[700px] bg-white transition-colors duration-150 dark:bg-Very-Dark-Desaturated-Blue-Dark h-20 border-solid border-b-[1px] first:rounded-t-lg p-5 border-Light-Grayish-Blue flex flex-row">
+        <div className="w-full max-w-[700px] bg-white transition-colors duration-150 dark:bg-Very-Dark-Desaturated-Blue-Dark h-20 border-solid border-b-[1px] first:rounded-t-lg p-5 border-Light-Grayish-Blue dark:border-Very-Dark-Grayish-Blue-2-Dark flex flex-row">
             {editTaskId === todo.id ? (
                 <div className="flex flex-row justify-between w-full">
                     <input

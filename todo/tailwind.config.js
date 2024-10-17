@@ -22,7 +22,7 @@ export default {
                 "Light-Grayish-Blue-(hover)-Dark": "hsl(236, 33%, 92%)",
                 "Dark-Grayish-Blue-Dark": "hsl(234, 11%, 52%)",
                 "Very-Dark-Grayish-Blue-1-Dark": "hsl(233, 14%, 35%)",
-                "Very-Dark Grayish-Blue-2-Dark": "hsl(237, 14%, 26%)"
+                "Very-Dark-Grayish-Blue-2-Dark": "hsl(237, 14%, 26%)"
 
             },
             transitionProperty: {

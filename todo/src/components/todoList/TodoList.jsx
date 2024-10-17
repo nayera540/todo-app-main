@@ -51,32 +51,71 @@ function TodoList({ todos, dispatch, active, completed }) {
                 {activeFilter === "All" &&
                     todos.length > 0 &&
                     todos.map((todo) => (
-                        <Todo key={todo.id} todo={todo} dispatch={dispatch} editTaskId={editTaskId} setEditTaskId={setEditTaskId}/>
+                        <Todo
+                            key={todo.id}
+                            todo={todo}
+                            dispatch={dispatch}
+                            editTaskId={editTaskId}
+                            setEditTaskId={setEditTaskId}
+                        />
                     ))}
                 {activeFilter === "Active" &&
                     active.length > 0 &&
                     active.map((todo) => (
-                        <Todo key={todo.id} todo={todo} dispatch={dispatch} editTaskId={editTaskId} setEditTaskId={setEditTaskId}/>
+                        <Todo
+                            key={todo.id}
+                            todo={todo}
+                            dispatch={dispatch}
+                            editTaskId={editTaskId}
+                            setEditTaskId={setEditTaskId}
+                        />
                     ))}
                 {activeFilter === "Completed" &&
                     completed.length > 0 &&
                     completed.map((todo) => (
-                        <Todo key={todo.id} todo={todo} dispatch={dispatch} editTaskId={editTaskId} setEditTaskId={setEditTaskId}/>
+                        <Todo
+                            key={todo.id}
+                            todo={todo}
+                            dispatch={dispatch}
+                            editTaskId={editTaskId}
+                            setEditTaskId={setEditTaskId}
+                        />
                     ))}
                 <div className="filter-tasks w-full dark:bg-Very-Dark-Desaturated-Blue-Dark transition-colors duration-150 bg-white h-14 flex flex-row items-center justify-between rounded-b-lg px-7">
                     <p className="text-Dark-Blue-Grayish-Blue">{itemsLeft} items left</p>
                     <div className="navigate flex gap-5">
-                        <button className={`${activeFilter === "All"? "text-Bright-Blue":"text-Dark-Blue-Grayish-Blue"} font-bold text-[17px]`} onClick={handleAllTasks}>
+                        <button
+                            className={`${activeFilter === "All"
+                                    ? "text-Bright-Blue"
+                                    : "text-Dark-Blue-Grayish-Blue"
+                                } font-bold text-[17px]`}
+                            onClick={handleAllTasks}
+                        >
                             All
                         </button>
-                        <button className={`${activeFilter === "Active"? "text-Bright-Blue":"text-Dark-Blue-Grayish-Blue"} font-bold`} onClick={handleActiveTasks}>
+                        <button
+                            className={`${activeFilter === "Active"
+                                    ? "text-Bright-Blue"
+                                    : "text-Dark-Blue-Grayish-Blue"
+                                } font-bold`}
+                            onClick={handleActiveTasks}
+                        >
                             Active
                         </button>
-                        <button className={`${activeFilter === "Completed"? "text-Bright-Blue":"text-Dark-Blue-Grayish-Blue"} font-bold`} onClick={handleCompletedTasks}>
+                        <button
+                            className={`${activeFilter === "Completed"
+                                    ? "text-Bright-Blue"
+                                    : "text-Dark-Blue-Grayish-Blue"
+                                } font-bold`}
+                            onClick={handleCompletedTasks}
+                        >
                             Completed
                         </button>
                     </div>
-                    <button className="text-Dark-Blue-Grayish-Blue hover:text-Very-Dark-Grayish-Blue dark:hover:text-Light-Grayish-Blue-(hover)-Dark duration-150" onClick={handleClearCompletedTasks}>
+                    <button
+                        className="text-Dark-Blue-Grayish-Blue hover:text-Very-Dark-Grayish-Blue dark:hover:text-Light-Grayish-Blue-(hover)-Dark duration-150"
+                        onClick={handleClearCompletedTasks}
+                    >
                         Clear Completed
                     </button>
                 </div>
