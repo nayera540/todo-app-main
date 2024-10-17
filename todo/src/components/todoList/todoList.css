@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .navigate button{
+        @apply hover:text-Very-Dark-Blue-Dark duration-150;
+    }
+}

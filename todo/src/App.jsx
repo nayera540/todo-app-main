@@ -16,6 +16,12 @@ function todoReducer(state, action) {
                 todos: state.todos.map((todo) =>
                     todo.id === action.payload.id ? { ...todo, done: !todo.done } : todo
                 ),
+                active: state.active.map((todo) =>
+                    todo.id === action.payload.id ? { ...todo, done: !todo.done } : todo
+                ),
+                completed: state.completed.map((todo) =>
+                    todo.id === action.payload.id ? { ...todo, done: !todo.done } : todo
+                )
             };
         case "Edit_task":
             return {
@@ -35,6 +41,8 @@ function todoReducer(state, action) {
             return {
                 ...state,
                 todos: state.todos.filter((todo) => todo.id !== action.payload.id),
+                active: state.active.filter((todo) => todo.id !== action.payload.id),
+                completed: state.completed.filter((todo) => todo.id !== action.payload.id)
             };
         case "All_Tasks":
             return {

@@ -30,7 +30,6 @@ function TodoList({ todos, dispatch, active, completed }) {
 
     function handleClearCompletedTasks() {
         dispatch({ type: "Clear_Completed" });
-        setActiveFilter("All");
     }
 
     return (
@@ -64,7 +63,7 @@ function TodoList({ todos, dispatch, active, completed }) {
                         <Todo key={todo.id} todo={todo} dispatch={dispatch} />
                     ))}
                 <div className="filter-tasks w-full bg-white h-14 flex flex-row items-center justify-between rounded-b-lg px-7">
-                    <p>{itemsLeft} items left</p>
+                    <p className="text-Dark-Blue-Grayish-Blue">{itemsLeft} items left</p>
                     <div className="navigate flex gap-5">
                         <button className={`${activeFilter === "All"? "text-Bright-Blue":"text-Dark-Blue-Grayish-Blue"} font-bold text-[17px]`} onClick={handleAllTasks}>
                             All
@@ -76,7 +75,7 @@ function TodoList({ todos, dispatch, active, completed }) {
                             Completed
                         </button>
                     </div>
-                    <button className="" onClick={handleClearCompletedTasks}>
+                    <button className="text-Dark-Blue-Grayish-Blue hover:text-Very-Dark-Grayish-Blue duration-150" onClick={handleClearCompletedTasks}>
                         Clear Completed
                     </button>
                 </div>

@@ -9,9 +9,13 @@ function playAudio() {
 function Todo({ todo, dispatch }) {
     const [isEditToggled, setIsEditToggled] = useState(false);
     const [editTask, setEditTask] = useState(todo.title);
+    let idArray = [];
 
     function handleEditToggle() {
         setIsEditToggled((isEditToggled) => !isEditToggled);
+        idArray.push(todo.id);
+        console.log(idArray);
+        
     }
 
     function handleEditTask() {
