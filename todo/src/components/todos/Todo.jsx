@@ -6,21 +6,22 @@ function playAudio() {
     new Audio(audio).play();
 }
 
-function Todo({ todo, dispatch }) {
-    const [isEditToggled, setIsEditToggled] = useState(false);
+function Todo({ todo, dispatch, editTaskId, setEditTaskId }) {
+    
     const [editTask, setEditTask] = useState(todo.title);
-    let idArray = [];
 
     function handleEditToggle() {
-        setIsEditToggled((isEditToggled) => !isEditToggled);
-        idArray.push(todo.id);
-        console.log(idArray);
+        if(editTask === todo.id){
+            setEditTaskId(null);
+        }else{
+            setEditTaskId(todo.id);
+        }
         
     }
 
     function handleEditTask() {
-        handleEditToggle();
         dispatch({ type: "Edit_task", payload: { id: todo.id, title: editTask } });
+        setEditTaskId(null);
     }
 
     function handleCheckTodo(todo) {
@@ -36,7 +37,7 @@ function Todo({ todo, dispatch }) {
 
     return (
         <div className="w-full max-w-[700px] bg-white h-20 border-solid border-b-[1px] first:rounded-t-lg p-5 border-Light-Grayish-Blue flex flex-row">
-            {isEditToggled ? (
+            {editTaskId === todo.id ? (
                 <div className="flex flex-row justify-between w-full">
                     <input
                         type="text"
@@ -67,7 +68,7 @@ function Todo({ todo, dispatch }) {
                         </button>
                         <button
                             className="bg-red-600 h-7 w-6 rounded-md grid justify-center content-center"
-                            onClick={handleEditToggle}
+                            onClick={() => setEditTaskId(null)}
                         >
                             <svg
                                 fill="#ffffff"

@@ -5,6 +5,7 @@ import { useState } from "react";
 function TodoList({ todos, dispatch, active, completed }) {
     const [todoInput, setTodoInput] = useState("");
     const [activeFilter, setActiveFilter] = useState("All");
+    const [editTaskId, setEditTaskId] = useState(null);
 
     let itemsLeft = todos.filter((todo) => !todo.done).length;
 
@@ -50,17 +51,17 @@ function TodoList({ todos, dispatch, active, completed }) {
                 {activeFilter === "All" &&
                     todos.length > 0 &&
                     todos.map((todo) => (
-                        <Todo key={todo.id} todo={todo} dispatch={dispatch} />
+                        <Todo key={todo.id} todo={todo} dispatch={dispatch} editTaskId={editTaskId} setEditTaskId={setEditTaskId}/>
                     ))}
                 {activeFilter === "Active" &&
                     active.length > 0 &&
                     active.map((todo) => (
-                        <Todo key={todo.id} todo={todo} dispatch={dispatch} />
+                        <Todo key={todo.id} todo={todo} dispatch={dispatch} editTaskId={editTaskId} setEditTaskId={setEditTaskId}/>
                     ))}
                 {activeFilter === "Completed" &&
                     completed.length > 0 &&
                     completed.map((todo) => (
-                        <Todo key={todo.id} todo={todo} dispatch={dispatch} />
+                        <Todo key={todo.id} todo={todo} dispatch={dispatch} editTaskId={editTaskId} setEditTaskId={setEditTaskId}/>
                     ))}
                 <div className="filter-tasks w-full bg-white h-14 flex flex-row items-center justify-between rounded-b-lg px-7">
                     <p className="text-Dark-Blue-Grayish-Blue">{itemsLeft} items left</p>
