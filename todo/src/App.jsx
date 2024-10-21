@@ -126,12 +126,12 @@ function App() {
     }, [todos])
 
     return (
-        <div className="max-w-[700px] w-full mx-auto mt-[70px] md:px-0 px-3 transition-colors duration-1000">
+        <div className="max-w-[700px] pb-16 w-full mx-auto mt-[70px] md:px-0 px-3 transition-colors duration-1000">
             <div className="flex flex-row justify-between transition-colors duration-1000">
                 <h1 className="text-white font-black uppercase tracking-[.45em] text-4xl">
                     todo
                 </h1>
-                <button onClick={handleThemeToggle}>
+                <button onClick={handleThemeToggle} className="hover:rotate-180 duration-500">
                     {theme === "dark" ? (
                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
                             <path

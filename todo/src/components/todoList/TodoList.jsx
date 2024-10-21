@@ -81,7 +81,7 @@ function TodoList({ todos, dispatch, active, completed }) {
                             setEditTaskId={setEditTaskId}
                         />
                     ))}
-                <div className="filter-tasks w-full dark:bg-Very-Dark-Desaturated-Blue-Dark transition-colors duration-150 bg-white h-14 flex flex-row items-center justify-between rounded-b-lg px-7">
+                <div className="filter-tasks w-full relative dark:bg-Very-Dark-Desaturated-Blue-Dark transition-colors duration-150 bg-white h-14 flex flex-row items-center justify-between rounded-b-lg px-7">
                     <p className="text-Dark-Blue-Grayish-Blue">{itemsLeft} items left</p>
                     <div className="navigate flex gap-5">
                         <button

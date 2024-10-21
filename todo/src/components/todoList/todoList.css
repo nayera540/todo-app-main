@@ -6,4 +6,10 @@
     .navigate button{
         @apply hover:text-Very-Dark-Blue-Dark duration-150 dark:hover:text-Light-Grayish-Blue-(hover)-Dark;
     }
+
+    @media(max-width: 768px){
+        .navigate{
+            @apply absolute left-0 top-20 w-full bg-white flex items-center dark:bg-Very-Dark-Desaturated-Blue-Dark mb-10 justify-center h-14 rounded-lg flex-wrap gap-5;
+        }
+    }
 }
